@@ -1,0 +1,61 @@
+{% extends 'adminhome.html' %}
+|{% load static %}
+
+{% block admin %}
+
+<div style="padding: 5px;" class="col-12">
+	<div style="background-color: rgb(238, 247, 255);" class=" rounded h-100 p-2">
+		<h1 style="color: rgb(0, 0, 255); text-align: center;"> VIEW PRODUCTS </h1>
+
+	</div>
+</div>
+<div style="padding:5px;" class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <div>
+            <div  class="bg-light rounded h-100 p-4">
+                <h6 style="color: blue;" class="mb-4">PRODUCT TABLE</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Prodct Name</th>
+                            <th scope="col">Brand Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Warranty</th>
+                            <th scope="col">Delivery Status</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in datas %}
+                        <tr>
+                            <td>{{ i.Cat_id.cat_name }}</td>
+                            <td><img src="{{i.product_image.url}}" width="100px" height="100px" alt=""></td>
+                            <td>{{ i.product_name }}</td>
+                            <td>{{ i.brand_name }}</td>
+                            <td>{{ i.product_price }}</td>
+                            <td>{{ i.product_disc }}</td>
+                            <td>{{ i.product_warranty }}</td>
+                            <td>{{ i.product_delivery }}</td>
+                            <td>{{ i.product_rate }}</td>
+                            <td><a href="{% url 'edit' i.id %}"><button class="btn btn-primary">Edit</button></a></td>
+                            <td><a href="{% url 'deleteprod' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+         
+          
+{% endblock %}

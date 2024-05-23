@@ -1,0 +1,47 @@
+{% extends 'adminhome.html' %}
+|{% load static %}
+
+{% block admin %}
+
+<div style="padding: 5px;" class="col-12">
+	<div style="background-color: rgb(243, 251, 255);" class=" rounded h-100 p-2">
+		<h1 style="color: rgb(0, 0, 255); text-align: center;"> VIEW CATEGORIES </h1>
+
+	</div>
+</div>
+<div style="padding:5px;" class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <div>
+            <div  class="bg-light rounded h-100 p-4">
+                <h6 style="color: blue;" class="mb-4">CATEGORY TABLE</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                           
+                            <th scope="col">Image</th>
+                            <th scope="col">Categories</th>
+                            <th scope="col">Delete</th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in details %}
+                        <tr>
+                            
+                            <td><img src="{{i.cat_image.url}}" width="100px" height="100px" alt=""></td>
+                            <td>{{ i.cat_name }}</td>
+                            <td><a href="{% url 'delete' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+         
+          
+{% endblock %}

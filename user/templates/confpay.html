@@ -1,0 +1,22 @@
+{% extends 'userhome.html' %}
+{% load static %}
+
+
+{% block user %}
+
+  <!-- 404 Start -->
+  <div style="width: 500px; margin-left: 400px;padding: 100px;" class="container-fluid pt-8 px-4  ">
+    <div class="row vh-100 bg-light rounded align-items-center justify-content-center mx-0">
+        <div class="col-md-8  p-4">
+            <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
+            <h1 class="display-1 fw-bold">THANK YOU...</h1>
+            <h1 class="mb-4">ORDER CONFIRMED</h1>
+            <p class="mb-4">your order number is 000009.we will email you  an order confirmation with detail and tracking info.</p>
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="{% url 'shop' %}">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+<!-- 404 End -->
+
+
+{% endblock  %}

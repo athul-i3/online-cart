@@ -1,0 +1,35 @@
+{% extends 'adminhome.html' %}
+|{% load static %}
+
+{% block admin %}
+<div style="padding: 5px;" class="col-12">
+	<div style="background-color: rgb(233, 234, 241);" class=" rounded h-100 p-2">
+		<h1 style="color: rgb(89, 89, 94); text-align: center;"> ADD CATEGORIES </h1>
+
+	</div>
+</div>
+
+<div style="margin: 5px;width: 600px ;height: 400px;" class="col-sm-12 col-xl-6">
+	<div class="bg-light rounded h-100 p-4">
+		<h6 class="mb-4">Category Input</h6>
+
+		<form action="{% url 'categories' %}" method="post" enctype="multipart/form-data">
+
+			{% csrf_token %}
+			<div class="mb-3">
+				<label for="formFileMultiple" class="form-label">Image</label>
+				<input class="form-control" type="file" name="Image" id="formFileMultiple" multiple>
+			</div>
+			<div class="mb-3">
+				<label for="formFileMultiple" class="form-label">Categories</label>
+				<div class="form-group">
+					<input class="form-control" type="text" name="Categories" placeholder="Categories">
+				</div>
+			</div>	
+			<button  class="btn btn-secondary" type="submit" title="it is used to add ">add</button>
+		</form>
+		
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'userhome.html' %}
+{% load static %}
+
+
+
+{% block user %}
+<br><br><br><br>
+<hr>
+<div style="text-align: center;" ><P ><h1><b>WISHLIST </b></h1></P></div>
+
+<form action="" class="bg0 p-t-15 p-b-15">
+
+    <div class="container">
+       
+        <div class="row">
+         
+            <div class="col-lg-10 col-xl-12 m-lr-auto m-b-50">
+                <div class="m-l-25 m-r--38 m-lr-0-xl">
+                    <div class="wrap-table-shopping-cart">
+                        <table class="table-shopping-cart">
+                            <tr class="table_head">
+                                <th class="column-1">Product</th>
+                                <th class="column-2"></th>
+                                <th class="column-3">Price</th>
+                                <th style="text-align: center;" class="column-4">Discount</th>
+                                <th class="column-5">Rating</th>
+                                
+                                <th style="text-align: center;"  class="column-5">Date</th>
+                                <th class="column-"></th>
+                                
+                            </tr>
+                           {% for i in wishlist %}
+                            <tr class="table_row">
+                                
+                                <td class="column-1">
+                                    <div class="how-itemcart1">
+                                        <img src="{{i.productid.product_image.url}}" alt="IMG">
+                                    </div>
+                                </td>
+                                <td class="column-2">{{i.productid.product_name}}</td>
+                                <td class="column-3">{{i.productid.product_price }}/-</td>
+                                <td style="text-align: center;" class="column-4">                                  
+                                        
+                                        {{i.productid.product_disc}}
+                                                                                     
+                                </td>
+                                <td class="column-5">{{i.productid.product_rate }}</td>
+                                
+                                <td class="column-5">{{i.date }}</td>
+                                <td><a href="{% url 'cart' i.productid.id %}"><button class="btn btn-primary" type="button">ADD TO CART</button></a></td>
+                                <td><a href="{% url 'remove_wishlist' i.id %}"><button class="btn btn-danger" type="button">Remove</button></a></td>
+                    
+                            </tr>
+
+                           {% endfor %}
+                        </table>
+                    </div>
+
+                    <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+                        <div class="flex-w flex-m m-r-20 m-tb-5">
+                            <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
+                                
+                            <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+                                Apply coupon
+                            </div>
+                        </div>
+
+                        <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+                            Update Cart
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</form>
+    
+
+{% endblock  %}

@@ -1,0 +1,36 @@
+{% extends 'adminhome.html' %}
+|{% load static %}
+
+{% block admin %}
+
+<div style="padding: 5px; " class="col-12">
+	<div  style="background-color: rgb(233, 234, 241);" class=" rounded h-100 p-2">
+		<h1 style="color: rgb(89, 89, 94); text-align: center;"> ADD NOTIFICATIONS </h1>
+
+	</div>
+</div>
+
+<div  style="margin: 5px;width: 600px ;height: 400px;" class="col-sm-12 col-xl-6">
+	<div  class="bg-light rounded h-100 p-4">
+		<h6 class="mb-4">Notification Input</h6>
+
+		<form action="{% url 'notification' %}" method="post" enctype="multipart/form-data">
+
+			{% csrf_token %}
+			<div class="mb-3">
+				<label for="formFileMultiple" class="form-label">Title</label>
+				<input class="form-control" type="text" name="title"  placeholder="title" id="formFileMultiple" multiple>
+			</div>
+			<div  class="mb-3">
+				<label for="formFileMultiple" class="form-label">Discription</label>
+				<div class="form-group">
+					<input type="text" class="form-control" name="discription" placeholder="Discription">
+				</div>
+			</div>	
+			<button  class="btn btn-primary" type="submit" title="it is used to add " >Add</button>
+		</form>
+		
+	</div>
+</div>
+
+{% endblock %}
